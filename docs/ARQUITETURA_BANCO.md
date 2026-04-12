@@ -1,5 +1,3 @@
-### `docs/ARQUITETURA_BANCO.md`
-
 ## Arquitetura de Banco de Dados (SaaS Multi-Tenant)
 
 ### 1. Estratégia de Isolamento: Shared Database, Separate Schemas (Lógico)
