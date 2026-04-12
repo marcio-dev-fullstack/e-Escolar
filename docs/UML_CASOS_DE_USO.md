@@ -1,3 +1,6 @@
+# Diagrama de Casos de Uso
+
+```mermaid
 useCaseDiagram
     actor "Super Admin (SaaS)" as SA
     actor "Gestor Escolar" as GE

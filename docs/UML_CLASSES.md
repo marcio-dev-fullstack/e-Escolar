@@ -1,9 +1,15 @@
+---
+
+### 2. Arquivo: `docs/UML_CLASSES.md`
+```markdown
+# Diagrama de Classes - Arquitetura de Dados
+
+```mermaid
 classDiagram
     class Escola {
         +int id
         +string nome
         +string cnpj
-        +string token_api
         +bool status_assinatura
     }
 
@@ -11,7 +17,7 @@ classDiagram
         +int id
         +int escola_id
         +string nome
-        +string nivel (ADM, PROF, ALUNO)
+        +string nivel
         +auth()
     }
 

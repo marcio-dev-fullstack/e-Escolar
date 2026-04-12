@@ -1,3 +1,10 @@
+---
+
+### 3. Arquivo: `docs/UML_SEQUENCIA_LOGIN.md`
+```markdown
+# Diagrama de Sequência - Autenticação Multi-Tenant
+
+```mermaid
 sequenceDiagram
     participant U as Usuário
     participant L as Sistema de Login
