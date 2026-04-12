@@ -1,6 +1,6 @@
 ### `docs/ARQUITETURA_BANCO.md`
 
-## 🗄️ Arquitetura de Banco de Dados (SaaS Multi-Tenant)
+## Arquitetura de Banco de Dados (SaaS Multi-Tenant)
 
 ### 1. Estratégia de Isolamento: Shared Database, Separate Schemas (Lógico)
 Para este projeto, utilizaremos um banco de dados único onde o isolamento é feito através da coluna `escola_id`. Esta abordagem oferece o melhor equilíbrio entre custo de manutenção e facilidade de escala para o modelo de curso proposto.

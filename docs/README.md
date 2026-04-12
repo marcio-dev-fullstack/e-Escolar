@@ -14,7 +14,7 @@ Este sistema é uma plataforma **Multi-Tenant** projetada para gerenciar múltip
 4.  **Financeiro:** Cobranças via PIX/Boleto, contas a pagar e fluxo de caixa.
 5.  **Comunicação:** Integração com APIs de WhatsApp para notificações.
 
-## 🛠 Stack Tecnológica
+## Stack Tecnológica
 - **Backend:** PHP 8.2 (Arquitetura Orientada a Objetos - POO).
 - **Banco de Dados:** MySQL com isolamento por `escola_id`.
 - **Frontend:** Bootstrap 5, AdminLTE, JavaScript vanilla.
