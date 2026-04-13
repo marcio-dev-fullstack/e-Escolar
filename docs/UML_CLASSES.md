@@ -1,8 +1,6 @@
----
+# 🧬 Diagrama de Classes - Arquitetura de Software
 
-### 2. Arquivo: `docs/UML_CLASSES.md`
-```markdown
-# Diagrama de Classes - Arquitetura de Dados
+Este diagrama descreve a estrutura de objetos do sistema e as relações de dependência entre os módulos principais, respeitando a arquitetura Multi-Tenant.
 
 ```mermaid
 classDiagram
@@ -10,32 +8,61 @@ classDiagram
         +int id
         +string nome
         +string cnpj
-        +bool status_assinatura
+        +string subdominio
+        +bool ativo
+        +configurarPainel()
     }
 
     class Usuario {
         +int id
         +int escola_id
         +string nome
+        +string email
+        +string senha
         +string nivel
-        +auth()
+        +login()
+        +recuperarSenha()
+    }
+
+    class Curso {
+        +int id
+        +int escola_id
+        +string nome
+        +string modalidade
     }
 
     class Turma {
         +int id
         +int escola_id
+        +int curso_id
         +string nome
-        +string periodo
+        +string ano_letivo
+        +string turno
     }
 
     class Matricula {
         +int id
+        +int escola_id
         +int aluno_id
         +int turma_id
-        +datetime data_inicio
+        +date data_matricula
+        +string status
+        +gerarContrato()
+    }
+
+    class Financeiro {
+        +int id
+        +int escola_id
+        +int matricula_id
+        +decimal valor
+        +date vencimento
+        +string status_pagamento
+        +registrarPagamento()
     }
 
     Escola "1" -- "*" Usuario : possui
-    Escola "1" -- "*" Turma : possui
-    Usuario "1" -- "*" Matricula : aluno_vinculado
-    Turma "1" -- "*" Matricula : possui_inscritos
+    Escola "1" -- "*" Curso : oferece
+    Curso "1" -- "*" Turma : contém
+    Turma "1" -- "*" Matricula : vincula
+    Usuario "1" -- "*" Matricula : como_aluno
+    Matricula "1" -- "*" Financeiro : gera
