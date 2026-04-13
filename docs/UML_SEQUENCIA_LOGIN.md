@@ -1,23 +1,20 @@
----
-
-### 3. Arquivo: `docs/UML_SEQUENCIA_LOGIN.md`
+#### `docs/UML_SEQUENCIA_LOGIN.md`
 ```markdown
-# Diagrama de Sequência - Autenticação Multi-Tenant
+# Fluxo de Autenticação Multi-Tenant
 
 ```mermaid
 sequenceDiagram
     participant U as Usuário
-    participant L as Sistema de Login
+    participant L as Login
     participant DB as Banco de Dados
-    participant S as Sessão/Tenant
+    participant S as Sessão
 
-    U->>L: Envia Email e Senha
-    L->>DB: Busca Usuário + escola_id
-    DB-->>L: Retorna Dados e Status da Escola
-    alt Escola Ativa
+    U->>L: Credenciais
+    L->>DB: Valida escola_id
+    DB-->>L: Ok
+    alt Ativa
         L->>S: Define $_SESSION['escola_id']
-        L->>S: Define $_SESSION['user_level']
-        L-->>U: Redireciona para Dashboard da Unidade
-    else Escola Inadimplente/Inativa
-        L-->>U: Exibe Mensagem de Bloqueio
+        L-->>U: Redireciona
+    else Inativa
+        L-->>U: Mensagem Bloqueio
     end
