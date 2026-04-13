@@ -1,6 +1,6 @@
-#### `docs/UML_SEQUENCIA_LOGIN.md`
+#### `SEQUENCIA DE LOGIN`
 ```markdown
-# Fluxo de Autenticação Multi-Tenant
+# Fluxo de Autenticação
 
 ```mermaid
 sequenceDiagram
