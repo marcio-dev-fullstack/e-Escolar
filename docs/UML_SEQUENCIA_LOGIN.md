@@ -1,8 +1,3 @@
-#### `SEQUENCIA DE LOGIN`
-```markdown
-# Fluxo de Autenticação
-
-```mermaid
 sequenceDiagram
     participant U as Usuário
     participant L as Login
@@ -12,9 +7,9 @@ sequenceDiagram
     U->>L: Credenciais
     L->>DB: Valida escola_id
     DB-->>L: Ok
-    alt Ativa
+    alt Escola Ativa
         L->>S: Define $_SESSION['escola_id']
-        L-->>U: Redireciona
-    else Inativa
-        L-->>U: Mensagem Bloqueio
+        L-->>U: Redireciona para Dashboard
+    else Escola Inativa
+        L-->>U: Exibe Mensagem de Bloqueio
     end
