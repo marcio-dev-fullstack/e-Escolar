@@ -1,20 +1,15 @@
-# Diagrama de Casos de Uso
-
 ```mermaid
-useCaseDiagram
-    actor "Super Admin (SaaS)" as SA
-    actor "Gestor Escolar" as GE
-    actor "Professor" as PR
-    actor "Aluno" as AL
+graph TD
+    SA[Super Admin SaaS] -->|Gerenciar| ASSIN(Assinaturas)
+    GE[Gestor Escolar] -->|Matricular| ALUNO(Alunos)
+    PR[Professor] -->|Lançar| NOTA(Notas/Faltas)
+    AL[Aluno/Pai] -->|Visualizar| BOL(Boletim)
 
-    SA --> (Gerenciar Assinaturas das Escolas)
-    SA --> (Configurar APIs Globais)
-    
-    GE --> (Gerenciar Matrículas)
-    GE --> (Configurar Financeiro da Unidade)
-    
-    PR --> (Lançar Notas e Frequência)
-    PR --> (Registrar Plano de Aula)
-    
-    AL --> (Visualizar Boletim e Notas)
-    AL --> (Pagar Mensalidades via PIX)
+#### No ficheiro `docs/DATABASE.md`:
+```markdown
+```mermaid
+erDiagram
+    ESCOLAS ||--o{ USUARIOS : "possui"
+    ESCOLAS ||--o{ TURMAS : "organiza"
+    TURMAS ||--o{ MATRICULAS : "contém"
+
