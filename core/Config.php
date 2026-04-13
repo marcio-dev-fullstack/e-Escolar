@@ -1,14 +1,14 @@
 <?php
-// Configurações do Banco de Dados
+// Configurações do PostgreSQL
+define('DB_DRIVER', 'pgsql'); // Alterado para pgsql
 define('HOST', 'localhost');
-define('USER', 'root');
-define('PASS', '');
+define('PORT', '5432');
+define('USER', 'postgres'); // Usuário padrão do Postgres
+define('PASS', 'sua_senha');
 define('DB', 'e_escolar');
 
-// Configurações do Sistema
 define('BASE_URL', 'http://localhost/e-Escolar/');
 
-// Início da sessão para controle do Multi-Tenant
 if (!isset($_SESSION)) {
     session_start();
 }

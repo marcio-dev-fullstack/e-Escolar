@@ -7,11 +7,12 @@ class Database {
 
     private function __construct() {
         try {
-            $this->conn = new PDO("mysql:host=" . HOST . ";dbname=" . DB . ";charset=utf8mb4", USER, PASS);
+            $dsn = DB_DRIVER . ":host=" . HOST . ";port=" . PORT . ";dbname=" . DB;
+            $this->conn = new PDO($dsn, USER, PASS);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            die("Erro na conexão técnica: " . $e->getMessage());
+            die("Erro na conexão Postgres: " . $e->getMessage());
         }
     }
 
