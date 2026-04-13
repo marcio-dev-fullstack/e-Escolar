@@ -1,4 +1,4 @@
-# 🧬 Diagrama de Classes - Arquitetura de Software
+# Diagrama de Classes 
 
 Este diagrama descreve a estrutura de objetos do sistema e as relações de dependência entre os módulos principais, respeitando a arquitetura Multi-Tenant.
 
