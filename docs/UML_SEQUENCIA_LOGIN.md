@@ -1,15 +1,8 @@
 sequenceDiagram
-    participant U as Usuário
+    participant U as Usuario
     participant L as Login
-    participant DB as Banco de Dados
-    participant S as Sessão
-
+    participant DB as Banco
     U->>L: Credenciais
     L->>DB: Valida escola_id
     DB-->>L: Ok
-    alt Escola Ativa
-        L->>S: Define $_SESSION['escola_id']
-        L-->>U: Redireciona para Dashboard
-    else Escola Inativa
-        L-->>U: Exibe Mensagem de Bloqueio
-    end
+    L->>U: Redireciona
