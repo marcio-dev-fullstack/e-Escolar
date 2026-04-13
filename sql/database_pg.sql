@@ -37,3 +37,26 @@ CREATE TABLE usuarios (
 
 -- Índices de performance SaaS
 CREATE INDEX idx_escola_usuario ON usuarios(escola_id);
+
+-- Tabela de Turmas
+CREATE TABLE turmas (
+    id SERIAL PRIMARY KEY,
+    escola_id INTEGER NOT NULL REFERENCES escolas(id) ON DELETE CASCADE,
+    nome VARCHAR(50) NOT NULL,
+    ano_letivo INTEGER NOT NULL,
+    turno VARCHAR(20) NOT NULL, -- Matutino, Vespertino, Noturno
+    status VARCHAR(20) DEFAULT 'aberta',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de Vínculo (Alunos na Turma)
+CREATE TABLE matriculas (
+    id SERIAL PRIMARY KEY,
+    escola_id INTEGER NOT NULL REFERENCES escolas(id) ON DELETE CASCADE,
+    aluno_id INTEGER NOT NULL REFERENCES alunos(id) ON DELETE CASCADE,
+    turma_id INTEGER NOT NULL REFERENCES turmas(id) ON DELETE CASCADE,
+    data_matricula DATE DEFAULT CURRENT_DATE,
+    CONSTRAINT uk_aluno_turma UNIQUE (aluno_id, turma_id) -- Impede duplicidade
+);
+
+CREATE INDEX idx_turmas_escola ON turmas(escola_id);
