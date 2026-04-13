@@ -17,7 +17,7 @@ Para garantir que a Escola A não veja os dados da Escola B, utilizamos o campo 
 * **turmas**: Vínculo entre curso, período e ano letivo.
 * **matriculas**: Onde a "mágica" acontece: liga o aluno à turma e gera o financeiro.
 
-### 4. Relacionamento (Mermaid)
+### 4. Relacionamento 
 
 ```mermaid
 erDiagram
